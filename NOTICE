@@ -1,0 +1,14 @@
+# NOTICE
+
+本项目包含以下开源项目的代码：
+
+## Espressif ESP-IDF
+
+-   License: Apache-2.0
+-   Copyright: 2015-2023 Espressif Systems (Shanghai) CO LTD
+-   Origin: https://github.com/espressif/esp-idf
+-   Path:
+    -   tools/cmake
+    -   tools/kconfig_new
+    -   tools/requirements
+    -   tools/check_term.py
