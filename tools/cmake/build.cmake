@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Espressif Systems (Shanghai) CO LTD
+# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
+# SPDX-License-Identifier: Apache-2.0
+
 # idf_build_get_property
 #
 # @brief Retrieve the value of the specified property related to ESP-IDF build.
@@ -258,16 +262,19 @@ function(__build_init idf_path)
         endif()
     endforeach()
 
-    if("${target}" STREQUAL "linux")
-        set(requires_common freertos esp_hw_support heap log soc hal esp_rom esp_common esp_system linux)
-        idf_build_set_property(__COMPONENT_REQUIRES_COMMON "${requires_common}")
-    else()
-        # Set components required by all other components in the build
-        #
-        # - esp_hw_support is here for backward compatibility
-        set(requires_common cxx newlib freertos esp_hw_support heap log soc hal esp_rom esp_common esp_system)
-        idf_build_set_property(__COMPONENT_REQUIRES_COMMON "${requires_common}")
-    endif()
+    # if("${target}" STREQUAL "linux")
+    #     set(requires_common freertos esp_hw_support heap log soc hal esp_rom esp_common esp_system linux)
+    #     idf_build_set_property(__COMPONENT_REQUIRES_COMMON "${requires_common}")
+    # else()
+    #     # Set components required by all other components in the build
+    #     #
+    #     # - esp_hw_support is here for backward compatibility
+    #     set(requires_common cxx newlib freertos esp_hw_support heap log soc hal esp_rom esp_common esp_system)
+    #     idf_build_set_property(__COMPONENT_REQUIRES_COMMON "${requires_common}")
+    # endif()
+    # TODODO 目前暂未通用需求组件，后续需要根据具体目标与（如 linux、stm32f）确定此列表
+    set(requires_common )
+    idf_build_set_property(__COMPONENT_REQUIRES_COMMON "${requires_common}")
 
     __build_get_idf_git_revision()
     __kconfig_init()
@@ -414,16 +421,17 @@ function(__build_check_python)
     if(check)
         idf_build_get_property(python PYTHON)
         idf_build_get_property(idf_path IDF_PATH)
-        message(STATUS "Checking Python dependencies...")
-        execute_process(COMMAND "${python}" "${idf_path}/tools/idf_tools.py" "check-python-dependencies"
-            RESULT_VARIABLE result)
-        if(result EQUAL 1)
-            # check_python_dependencies returns error code 1 on failure
-            message(FATAL_ERROR "Some Python dependencies must be installed. Check above message for details.")
-        elseif(NOT result EQUAL 0)
-            # means check_python_dependencies.py failed to run at all, result should be an error message
-            message(FATAL_ERROR "Failed to run Python dependency check. Python: ${python}, Error: ${result}")
-        endif()
+        # # TODODO 暂未检查 python
+        # message(STATUS "Checking Python dependencies...")
+        # execute_process(COMMAND "${python}" "${idf_path}/tools/idf_tools.py" "check-python-dependencies"
+        #     RESULT_VARIABLE result)
+        # if(result EQUAL 1)
+        #     # check_python_dependencies returns error code 1 on failure
+        #     message(FATAL_ERROR "Some Python dependencies must be installed. Check above message for details.")
+        # elseif(NOT result EQUAL 0)
+        #     # means check_python_dependencies.py failed to run at all, result should be an error message
+        #     message(FATAL_ERROR "Failed to run Python dependency check. Python: ${python}, Error: ${result}")
+        # endif()
     endif()
 endfunction()
 

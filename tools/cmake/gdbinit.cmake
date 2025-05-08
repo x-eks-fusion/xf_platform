@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Espressif Systems (Shanghai) CO LTD
+# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
+# SPDX-License-Identifier: Apache-2.0
+
 # __generate_gdbinit
 # Prepares gdbinit files to pass into the debugger.
 
@@ -37,7 +41,8 @@ function(__generate_gdbinit)
     set(connect_gdbinit_path ${gdbinit_dir}/connect)
     idf_build_get_property(PROJECT_EXECUTABLE EXECUTABLE)
     set(application_elf ${BUILD_DIR}/${PROJECT_EXECUTABLE})
-    file(TO_CMAKE_PATH $ENV{ESP_ROM_ELF_DIR} ESP_ROM_ELF_DIR)
+    # TODODO 暂未定义 ENV{ESP_ROM_ELF_DIR} 环境变量
+    # file(TO_CMAKE_PATH $ENV{ESP_ROM_ELF_DIR} ESP_ROM_ELF_DIR)
 
     file(MAKE_DIRECTORY ${gdbinit_dir})
 
