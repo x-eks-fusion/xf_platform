@@ -217,6 +217,7 @@ function(__component_get_requirements)
 
     execute_process(COMMAND "${CMAKE_COMMAND}"
         -D "ESP_PLATFORM=1"
+        -D "XF_PLATFORM=1"
         -D "BUILD_PROPERTIES_FILE=${build_properties_file}"
         -D "COMPONENT_PROPERTIES_FILE=${component_properties_file}"
         -D "COMPONENT_REQUIRES_FILE=${component_requires_file}"

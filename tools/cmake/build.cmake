@@ -691,7 +691,9 @@ macro(idf_build_process target)
 
     # All targets built under this scope is with the ESP-IDF build system
     set(ESP_PLATFORM 1)
+    set(XF_PLATFORM 1)
     idf_build_set_property(COMPILE_DEFINITIONS "ESP_PLATFORM" APPEND)
+    idf_build_set_property(COMPILE_DEFINITIONS "XF_PLATFORM" APPEND)
 
     # Perform component processing (inclusion of project_include.cmake, adding component
     # subdirectories, creating library targets, linking libraries, etc.)
@@ -701,6 +703,7 @@ macro(idf_build_process target)
     add_subdirectory(${idf_path} ${build_dir}/esp-idf)
 
     unset(ESP_PLATFORM)
+    unset(XF_PLATFORM)
 endmacro()
 
 # idf_build_executable
