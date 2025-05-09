@@ -1,6 +1,6 @@
-# SPDX-FileCopyrightText: 2022 Espressif Systems (Shanghai) CO LTD
-# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
+# SPDX-FileCopyrightText: 2015-2023 Espressif Systems (Shanghai) CO LTD
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
 
 # idf_build_get_property
 #

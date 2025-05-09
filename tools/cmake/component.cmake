@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2015-2023 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
+
 #
 # Internal function for retrieving component properties from a component target.
 #
