@@ -7,6 +7,7 @@
 -   License: Apache-2.0
 -   Copyright: 2015-2023 Espressif Systems (Shanghai) CO LTD
 -   Origin: https://github.com/espressif/esp-idf
+-   branches/tags(commit): v5.4.1 (4c2820d377d1375e787bcef612f0c32c1427d183)
 -   Path:
     -   tools/cmake
     -   tools/kconfig_new
