@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2015-2023 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
+
 get_property(__idf_env_set GLOBAL PROPERTY __IDF_ENV_SET)
 if(NOT __idf_env_set)
     # Infer an IDF_PATH relative to the tools/cmake directory
@@ -34,11 +38,12 @@ if(NOT __idf_env_set)
     include(build)
 
     set(IDF_PATH ${idf_path})
-
-    include(GetGitRevisionDescription)
+    
+    # # MODIFY 不使用 git 功能
+    # include(GetGitRevisionDescription)
     include(CheckCCompilerFlag)
     include(CheckCXXCompilerFlag)
-    include(git_submodules)
+    # include(git_submodules)
     include(tool_version_check)
     include(kconfig)
     include(component)

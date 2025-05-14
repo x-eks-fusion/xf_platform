@@ -100,17 +100,20 @@ endfunction()
 #
 function(__build_get_idf_git_revision)
     idf_build_get_property(idf_path IDF_PATH)
-    git_describe(idf_ver_git "${idf_path}" "--match=v*.*")
-    if(EXISTS "${idf_path}/version.txt")
-        file(STRINGS "${idf_path}/version.txt" idf_ver_t)
-        set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${idf_path}/version.txt")
-    else()
-        set(idf_ver_t ${idf_ver_git})
-    endif()
+    # # MODIFY 不使用 git 功能
+    # git_describe(idf_ver_git "${idf_path}" "--match=v*.*")
+    # if(EXISTS "${idf_path}/version.txt")
+    #     file(STRINGS "${idf_path}/version.txt" idf_ver_t)
+    #     set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${idf_path}/version.txt")
+    # else()
+    #     set(idf_ver_t ${idf_ver_git})
+    # endif()
+    set(idf_ver_t "v2.0.0")
     # cut IDF_VER to required 32 characters.
     string(SUBSTRING "${idf_ver_t}" 0 31 idf_ver)
     idf_build_set_property(COMPILE_DEFINITIONS "IDF_VER=\"${idf_ver}\"" APPEND)
-    git_submodule_check("${idf_path}")
+    # # MODIFY 不使用 git 功能
+    # git_submodule_check("${idf_path}")
     idf_build_set_property(IDF_VER ${idf_ver})
 endfunction()
 

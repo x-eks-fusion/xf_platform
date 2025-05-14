@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2015-2023 Espressif Systems (Shanghai) CO LTD
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 CompanyNameMagicTag
+
 # Designed to be included from an IDF app's CMakeLists.txt file
 cmake_minimum_required(VERSION 3.16)
 
@@ -696,15 +700,17 @@ macro(project project_name)
                     set(CMAKE_PROJECT_VERSION ${PROJECT_VERSION})
                 endif()
             else()
-                # Use git describe to determine the version
-                git_describe(PROJECT_VER_GIT "${CMAKE_CURRENT_LIST_DIR}")
-                if(PROJECT_VER_GIT)
-                    set(project_ver ${PROJECT_VER_GIT})
-                else()
-                    message(STATUS "Could not use 'git describe' to determine PROJECT_VER.")
-                    # None of sources contain the version information. Default PROJECT_VER to 1.
-                    set(project_ver 1)
-                endif() #if(PROJECT_VER_GIT)
+                # # MODIFY 不使用 git 功能
+                # # Use git describe to determine the version
+                # git_describe(PROJECT_VER_GIT "${CMAKE_CURRENT_LIST_DIR}")
+                # if(PROJECT_VER_GIT)
+                #     set(project_ver ${PROJECT_VER_GIT})
+                # else()
+                #     message(STATUS "Could not use 'git describe' to determine PROJECT_VER.")
+                #     # None of sources contain the version information. Default PROJECT_VER to 1.
+                #     set(project_ver 1)
+                # endif() #if(PROJECT_VER_GIT)
+                set(project_ver 1)
             endif() #if(version_keyword_present)
         endif() #if(NOT project_ver)
     else()
