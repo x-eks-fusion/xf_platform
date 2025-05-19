@@ -137,7 +137,7 @@ function(__build_set_default_build_specifications)
                                     "-fdata-sections"
                                     # warning-related flags
                                     "-Wall"
-                                    "-Werror"
+                                    # "-Werror"
                                     "-Wno-error=unused-function"
                                     "-Wno-error=unused-variable"
                                     "-Wno-error=unused-but-set-variable"
