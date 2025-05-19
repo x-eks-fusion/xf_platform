@@ -317,6 +317,12 @@ mainmenu "Espressif IoT Development Framework Configuration"
 
     menu "Compiler options"
 
+        config COMPILER_SAVE_TEMPS
+            bool "Compiler: Save temporary files."
+            default n
+            help
+                The result of preprocessing the code can be seen in the temporary file.
+
         choice COMPILER_OPTIMIZATION
             prompt "Optimization Level"
             default COMPILER_OPTIMIZATION_DEBUG

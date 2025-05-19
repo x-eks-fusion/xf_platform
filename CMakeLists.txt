@@ -13,6 +13,10 @@ endif()
 # Add the following build specifications here, since these seem to be dependent
 # on config values on the root Kconfig.
 
+if(CONFIG_COMPILER_SAVE_TEMPS)
+    list(APPEND compile_options "-save-temps=obj")
+endif()
+
 if(NOT BOOTLOADER_BUILD)
 
     if(CONFIG_COMPILER_OPTIMIZATION_SIZE)
